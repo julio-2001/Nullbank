@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import user from './interfaces/user';
+import { UserProfile } from './components/profile';
+
+import './css/App.css';
 
 function App() {
+
+  const [users, setUser] = useState([])
+
+  useEffect(() => {
+    // Coletando as contas dos clientes
+    fetch('https://www.mocky.io/v2/5d531c4f2e0000620081ddce')
+      .then((resp) => resp.json())
+      .then((data) => setUser(data))
+      .catch((erro) => console.log(erro));
+  }, []);
+  console.log(users)
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      {users.map((acount:any) =>(
+        <UserProfile
+        key={acount.id}
+        name={acount.name}
+        id={acount.id}
+        username={acount.username}
+        img={acount.img}
+        />
+      ) )}
+      
     </div>
   );
 }
