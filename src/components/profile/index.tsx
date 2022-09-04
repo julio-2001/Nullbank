@@ -4,6 +4,7 @@ import "./style.css"
 import "../modals/index"
 import "../modals/index"
 import { UserCards } from "./cards"
+import { valueFormat } from "./maskara"
 
 import Modal from "react-modal"
 import { Payment } from "../../interfaces/card"
@@ -134,7 +135,10 @@ export const UserProfile = (data:user) => {
                 required 
                 onChange={(e) => setInputPayment(e.target.value)}
                 maxLength={14} 
-                minLength={1} />
+                minLength={1}
+                inputMode='numeric'
+                onKeyUp={valueFormat} 
+                />
 
                 <select id="payment_card"
                 onChange={(e) => setSelecCard(e.target.value)}>
