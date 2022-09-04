@@ -1,0 +1,35 @@
+.receiptResult{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    box-shadow: 10px 50px 0px 100vh rgba(0, 0, 0, 0.725);
+    z-index: 10;
+    overflow: scroll;
+  
+}
+
+.receiptResult #receiptHeader{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background:#474a6e;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    padding: 0 0  0 50px;
+}
+
+.receiptResult #receipt{
+   
+    display: flex;
+    justify-content: center;
+    padding: 100px 0 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    
+}
