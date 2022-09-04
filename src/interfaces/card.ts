@@ -3,3 +3,5 @@ export default interface card{
     cvv:number
     date:string
 }
+
+// payment

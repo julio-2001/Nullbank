@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import user from './interfaces/user';
 import { UserProfile } from './components/profile';
 
+
 import './css/App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
 
 
+
   return (
     <div className="App">
       
@@ -32,6 +34,8 @@ function App() {
         img={acount.img}
         />
       ) )}
+      
+      
       
     </div>
   );
