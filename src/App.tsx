@@ -22,7 +22,8 @@ function App() {
   return (
     <div className="App">
       
-      {users.map((acount:any) =>(
+      {/* informações dos clientes */}
+      {users.map((acount:user) =>(
         <UserProfile
         key={acount.id}
         name={acount.name}
