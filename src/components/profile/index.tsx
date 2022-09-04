@@ -52,10 +52,13 @@ export const UserProfile = (data:user) => {
         });
 
         const cardData = await cardInfo.json();
-        if(cardData['status'].value == aproved){
+       
+        console.log(cardData['status'])
+  
+        if(cardData['status'] == aproved){
             setMessage(' O pagamento foi aprovado')
         }else{
-            setMessage('O pagamento não foi aprovado')
+            setMessage('O pagamento  NÃO  foi aprovado')
         }
 
         console.log((cardData))
