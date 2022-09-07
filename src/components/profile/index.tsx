@@ -5,9 +5,8 @@ import "../modals/index"
 import "../modals/index"
 import { UserCards } from "./cards"
 import { valueFormat } from "./maskara"
-
+import "../modals/"
 import Modal from "react-modal"
-import { Payment } from "../../interfaces/card"
 
 Modal.setAppElement('#rootmodal')
 
@@ -22,9 +21,11 @@ export const UserProfile = (data:user) => {
     const [receiptOpen, setReceipt] = useState(false)
 
     //input do valor enviado
+     // eslint-disable-next-line
     const [inputPayment, setInputPayment]= useState('')
 
     //seleção do cartão
+     // eslint-disable-next-line
     const [selectCard, setSelecCard] = useState('')
 
     const[message, setMessage] = useState('')
@@ -36,11 +37,11 @@ export const UserProfile = (data:user) => {
         const value:number = data.target[0].value
         const selectCard = data.target[1].value;
         
-        const card = UserCards.find( (e) => e.card_number == selectCard );
+        const card = UserCards.find( (e) => e.card_number === selectCard );
 
         const aproved = card?.aproved
         console.log(data.target ,selectCard,card,value,aproved)
-        
+       
     
         const urlCard = 'https://run.mocky.io/v3/533cd5d7-63d3-4488-bf8d-4bb8c751c989';
 
@@ -56,13 +57,13 @@ export const UserProfile = (data:user) => {
        
         console.log(cardData['status'])
   
-        if(cardData['status'] == aproved){
+        if(cardData['status'] === aproved){
             setMessage(' O pagamento foi aprovado')
         }else{
             setMessage('O pagamento  NÃO  foi aprovado')
         }
 
-        console.log((cardData))
+       
         setModalPay(false)
         //abrira assim que a requesição for feita
         setReceipt(true)
@@ -86,6 +87,8 @@ export const UserProfile = (data:user) => {
 
 
     const customStyles = {
+
+        //customização dos modais utilizados 
         content: {
             width:'70%',
             height:'50%',
@@ -106,7 +109,7 @@ export const UserProfile = (data:user) => {
         <> 
         <div className="user" >
             <div id="userPerfil">
-                <img id="userImg" src={data.img} alt={`Perfil do user ${data.name}`} />
+                <img id="userImg" src={data.img} alt={`Perfil do cliente ${data.name}`} />
                 <div id="userInfo">
                     <p id="userName"> {data.name}</p>
                     <p id="userAcount">ID:{data.id} - Username{data.username} </p>
@@ -127,7 +130,11 @@ export const UserProfile = (data:user) => {
 
 
         <form className="payment" onSubmit={paymentLoading}>
-            <div className="payment_header"><p>Pagamento para <span>{data.name}</span></p></div>
+
+            <div className="payment_header">
+                <p>Pagamento para: <span>{data.name}</span></p>
+            </div>
+
             <div className="payment_container">
 
                 <input id="payment_value" type="text" 
@@ -155,6 +162,7 @@ export const UserProfile = (data:user) => {
         </Modal>
 
         <Modal
+        //modal de recino d
         isOpen={receiptOpen}
         onRequestClose={onClosereceipt}
         style={customStyles}

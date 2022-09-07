@@ -34,6 +34,10 @@
 
 .payment .payment_header span{
     color: #d1da59;
+    white-space: nowrap;
+    margin-right: 30px;
+    
+    
 }
 
 .payment .payment_container {
