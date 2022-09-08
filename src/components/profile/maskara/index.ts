@@ -9,4 +9,4 @@ export function valueFormat(data:any) {
       val.slice(0, -2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') +
       ',' +
       val.slice(-2);
-  }
+}

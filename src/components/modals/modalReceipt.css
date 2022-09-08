@@ -9,8 +9,7 @@
     margin: auto auto;
     box-shadow: 10px 50px 0px 100vh rgba(0, 0, 0, 0.725);
     z-index: 10;
-    overflow: scroll;
-  
+    overflow: scroll; 
 }
 
 .receiptResult #receiptHeader{
@@ -22,7 +21,6 @@
     font-size: 24px;
     color: white;
     padding: 0 0  0 50px;
-    
 }
 
 .receiptResult #receiptHeader p{
@@ -30,11 +28,9 @@
 }
 
 .receiptResult #receipt{
-   
     display: flex;
     justify-content: center;
     padding: 100px 0 0 0;
     font-size: 24px;
-    font-weight: bold;
-    
+    font-weight: bold;   
 }

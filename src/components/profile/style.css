@@ -4,7 +4,6 @@
     justify-content: space-between;
     width: 100%;
     min-height: 150px;
-  
     border-top: 1px solid white;
     border-bottom: .5px solid white;
     align-items: center;
@@ -14,9 +13,7 @@
 .user #userPerfil{
     display: flex;
     align-items: center;
-    justify-content: center;
-    
-    
+    justify-content: center;   
 }
 
 .user #userImg{
@@ -24,7 +21,6 @@
     width: 120px;
     height: 120px;
     margin: 0 20px 0 20px;
-
 }
 
 .user #userInfo{
@@ -33,21 +29,19 @@
     color: white;
 }
 
-.user #button{
-    
+.user #button{ 
     width: 100px;
     height: 50px;
     margin-right: 20px;
-   
     cursor: pointer;
 }
 
 @media (max-width:550px) {
     .user{
         flex-direction: column;
-        padding: 20px;
-        
+        padding: 20px; 
     }
+
     .user #userPerfil {
         flex-direction: column;
         padding: 30px;
@@ -55,6 +49,5 @@
 
     .user #userPerfil p{
         padding: 5px;
-
     } 
 }

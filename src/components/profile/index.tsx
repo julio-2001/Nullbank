@@ -7,6 +7,7 @@ import { UserCards } from "./cards"
 import { valueFormat } from "./maskara"
 import "../modals/"
 import Modal from "react-modal"
+// import { card } from "../../interfaces/card"
 
 Modal.setAppElement('#rootmodal')
 
@@ -45,13 +46,15 @@ export const UserProfile = (data:user) => {
     
         const urlCard = 'https://run.mocky.io/v3/533cd5d7-63d3-4488-bf8d-4bb8c751c989';
 
+
         const cardInfo = await fetch(urlCard, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-                body: JSON.stringify(card),
+            body: JSON.stringify(card),
         });
+
 
         const cardData = await cardInfo.json();
        
@@ -70,42 +73,34 @@ export const UserProfile = (data:user) => {
 
     }
     
-    
-
-
     //fechara o modal de pagamento
     function onClose(){
         setModalPay(false)
     }
 
+    //fechara o recibo
     function onClosereceipt(){
         setReceipt(false)
     }
 
-
-    //modal payment
-
-
+    //modal payment e modal recibo
     const customStyles = {
 
         //customização dos modais utilizados 
         content: {
             width:'70%',
             height:'50%',
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          boxShadow: '10px 50px 0px 100vh rgba(0, 0, 0, 0.725)',
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            boxShadow: '10px 50px 0px 100vh rgba(0, 0, 0, 0.725)',
         },
-      };
+    };
 
-
-    
     return(
-
         <> 
         <div className="user" >
             <div id="userPerfil">
@@ -120,13 +115,13 @@ export const UserProfile = (data:user) => {
             <button id="button" onClick={()=> setModalPay(true)}>Pagar</button>
 
         </div>
+
+
         <Modal
         isOpen={modalPayOpen}
         style={customStyles}
         onRequestClose={onClose}
         >
-
-
 
 
         <form className="payment" onSubmit={paymentLoading}>
@@ -157,12 +152,14 @@ export const UserProfile = (data:user) => {
                 </select>
 
                 <button id="payment_button">Pagar</button>
+
             </div>
         </form>
         </Modal>
 
+
         <Modal
-        //modal de recino d
+        //modal de recibo
         isOpen={receiptOpen}
         onRequestClose={onClosereceipt}
         style={customStyles}
@@ -170,6 +167,8 @@ export const UserProfile = (data:user) => {
 
             <div className="receiptResult">
                 <div id="receiptHeader"><p>Recibo de pagamento</p></div>
+
+                {/*Enviará a mensagem do recibo*/}
                 <p id="receipt">{message}</p>
 
             </div>

@@ -7,7 +7,7 @@ export interface card{
     card_number:number
     cvv:number
     date:string
-    aproved:boolean
+    aproved:string
 }
 
 // payment
