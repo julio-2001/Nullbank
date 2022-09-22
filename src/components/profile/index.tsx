@@ -83,12 +83,14 @@ export const UserProfile = (data:user) => {
         setReceipt(false)
     }
 
-    //modal payment e modal recibo
-    const customStyles = {
 
+
+
+
+    const customStyles = {
         //customização dos modais utilizados 
         content: {
-            width:'70%',
+            width:'100%',
             height:'50%',
             top: '50%',
             left: '50%',
@@ -97,8 +99,14 @@ export const UserProfile = (data:user) => {
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
             boxShadow: '10px 50px 0px 100vh rgba(0, 0, 0, 0.725)',
+            background:'none',
+            border:'none',
         },
     };
+
+
+    //modal payment e modal recibo
+   
 
     return(
         <> 
