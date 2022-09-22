@@ -152,7 +152,7 @@ export const UserProfile = (data:user) => {
                 onChange={(e) => setSelecCard(e.target.value)}>
 
                     <option disabled value={''}>Escolha um cartao </option>
-                    <option value={UserCards[0].card_number}>Cartao com final {UserCards[0].card_number.slice(-4)}</option>
+                    <option value={UserCards[0].card_number}>Cartão com final {UserCards[0].card_number.slice(-4)}</option>
                     <option value={UserCards[1].card_number}>Cartão com final {UserCards[1].card_number.slice(-4)}</option>
 
                 </select>

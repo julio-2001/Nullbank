@@ -41,6 +41,7 @@
     color: #d1da59;
     white-space: nowrap;
     margin-right: 30px;
+    font-weight: bold;
 }
 
 .payment .payment_container {
