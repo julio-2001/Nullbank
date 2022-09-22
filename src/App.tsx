@@ -22,7 +22,7 @@ function App() {
       {/* informações dos clientes */}
       {users.map((acount:user) =>(
         <UserProfile
-        key={acount.id}
+        key={'userprofile-'+acount.id}
         name={acount.name}
         id={acount.id}
         username={acount.username}
