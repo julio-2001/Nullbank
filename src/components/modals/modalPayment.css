@@ -64,9 +64,72 @@
     margin: 40px auto 20px auto; 
 }
 
-.payment .payment_container #payment_button{
+.payment_buttons{
+    margin: 0 auto;
+}
+
+
+.payment .payment_container .payment_buttons #payment_button{
     width: 100px;
     height: 50px;
-    margin: 0 auto;
     cursor: pointer;
+    margin-right: 5px;
+    border: 1px solid #14cf10;
+    border-radius: 5px;
+    color:#14cf10;
+    background: rgba(19, 207, 16, 0.14);
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+
+.payment .payment_container .payment_buttons #payment_cancel{
+    width: 100px;
+    height: 50px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid  rgb(175, 17, 17);
+    color: rgb(175, 17, 17) ;
+    background:  rgba(175, 17, 17, 0.14);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1em;
+}
+
+/*O botao de fechar no modal de pagamento*/
+#closePayment{
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: 0;
+    margin: 30px 20px 20px 20px;
+    cursor: pointer;
+    width: 30px; 
+    height: 30px;
+    background: rgb(175, 17, 17);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+#closePayment::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: black;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+#closePayment::before{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: black;
+    transform: rotate(-45deg);
+    position: absolute;
 }

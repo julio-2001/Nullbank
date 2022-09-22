@@ -159,9 +159,14 @@ export const UserProfile = (data:user) => {
 
                 </select>
 
-                <button id="payment_button">Pagar</button>
+                <div className="payment_buttons">
+
+                    <button id="payment_button">Pagar</button>
+                    <button id="payment_cancel" onClick={()=>setModalPay(false)} >Cancelar</button>
+                </div>
 
             </div>
+        <span id="closePayment" onClick={()=>setModalPay(false)}></span>
         </form>
         </Modal>
 
