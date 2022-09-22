@@ -81,7 +81,11 @@
     font-size: 1em;
     text-transform: uppercase;
     text-align: center;
+    transition: .3s;
     
+}
+.payment .payment_container .payment_buttons #payment_button:hover{
+    background: rgba(19, 207, 16, 0.357);
 }
 
 .payment .payment_container .payment_buttons #payment_cancel{
@@ -96,6 +100,10 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 1em;
+    transition: .3s;
+}
+.payment .payment_container .payment_buttons #payment_cancel:hover{
+    background:  rgba(175, 17, 17, 0.357);
 }
 
 /*O botao de fechar no modal de pagamento*/
@@ -108,10 +116,16 @@
     cursor: pointer;
     width: 30px; 
     height: 30px;
-    background: rgb(175, 17, 17);
+    background: rgb(142, 13, 13);
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    transition: .5s;
+}
+
+#closePayment:hover{
+    background: rgb(236, 8, 8);
+
 }
 
 #closePayment::after{
