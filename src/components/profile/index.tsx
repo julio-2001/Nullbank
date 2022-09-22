@@ -16,32 +16,32 @@ Modal.setAppElement('#rootmodal')
 
 export const UserProfile = (data:user) => {
     //modal de pagamento
-    const [modalPayOpen, setModalPay] =  useState(false)
+    const [modalPayOpen, setModalPay] =  useState(false);
 
     // recibo de pagamento
-    const [receiptOpen, setReceipt] = useState(false)
+    const [receiptOpen, setReceipt] = useState(false);
 
     //input do valor enviado
      // eslint-disable-next-line
-    const [inputPayment, setInputPayment]= useState('')
+    const [inputPayment, setInputPayment]= useState('');
 
     //seleção do cartão
      // eslint-disable-next-line
-    const [selectCard, setSelecCard] = useState('')
+    const [selectCard, setSelecCard] = useState('');
 
-    const[message, setMessage] = useState('')
+    const[message, setMessage] = useState('');
 
 
     async function paymentLoading(data:any){
         data.preventDefault()
 
-        const value:number = data.target[0].value
+        const value:number = data.target[0].value;
         const selectCard = data.target[1].value;
         
         const card = UserCards.find( (e) => e.card_number === selectCard );
 
-        const aproved = card?.aproved
-        console.log(data.target ,selectCard,card,value,aproved)
+        const aproved = card?.aproved;
+        console.log(data.target ,selectCard,card,value,aproved);
        
     
         const urlCard = 'https://run.mocky.io/v3/533cd5d7-63d3-4488-bf8d-4bb8c751c989';
@@ -58,32 +58,30 @@ export const UserProfile = (data:user) => {
 
         const cardData = await cardInfo.json();
        
-        console.log(cardData['status'])
+        console.log(cardData['status']);
   
         if(cardData['status'] === aproved){
-            setMessage(' O pagamento foi aprovado')
+            setMessage(' O pagamento foi aprovado');
         }else{
-            setMessage('O pagamento  NÃO  foi aprovado')
+            setMessage('O pagamento  NÃO  foi aprovado');
         }
 
        
-        setModalPay(false)
+        setModalPay(false);
         //abrira assim que a requesição for feita
-        setReceipt(true)
+        setReceipt(true);
 
     }
     
     //fechara o modal de pagamento
     function onClose(){
-        setModalPay(false)
+        setModalPay(false);
     }
 
     //fechara o recibo
     function onClosereceipt(){
-        setReceipt(false)
+        setReceipt(false);
     }
-
-
 
 
 
@@ -184,6 +182,7 @@ export const UserProfile = (data:user) => {
                 {/*Enviará a mensagem do recibo*/}
                 <p id="receipt">{message}</p>
 
+                <span id="closeReceipt" onClick={()=> setReceipt(false) } ></span>
             </div>
 
         </Modal>

@@ -42,3 +42,47 @@
     font-size: 24px;
     font-weight: bold;   
 }
+
+
+/* Botao de fechar o RECIBO*/
+
+.receiptResult #closeReceipt{
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: 0;
+    margin: 5px 20px 20px 20px;
+    cursor: pointer;
+    width: 30px; 
+    height: 30px;
+    background: rgb(142, 13, 13);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+#closeReceipt:hover{
+    background: rgb(236, 8, 8);
+
+}
+
+#closeReceipt::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: black;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+#closeReceipt::before{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: black;
+    transform: rotate(-45deg);
+    position: absolute;
+}
