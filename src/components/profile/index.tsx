@@ -7,6 +7,7 @@ import { UserCards } from "./cards"
 import { valueFormat } from "./maskara"
 import "../modals/"
 import Modal from "react-modal"
+import { isDisabled } from "@testing-library/user-event/dist/utils"
 // import { card } from "../../interfaces/card"
 
 Modal.setAppElement('#rootmodal')
@@ -32,33 +33,45 @@ export const UserProfile = (data:user) => {
     const[message, setMessage] = useState('');
 
 
-    async function paymentLoading(data:any){
-        data.preventDefault()
+    async function paymentLoading(dataCard:any, ){
 
-        const value:number = data.target[0].value;
-        const selectCard = data.target[1].value;
+        dataCard.preventDefault()
+        console.log(dataCard)
         
+        // valor informado para transação
+        const value:number = dataCard.target[0].value;
+
+        // cartao selecionado
+        const selectCard = dataCard.target[1].value;
+        
+        // filtrara todos os cartão cadastrados e retorná o que foi escolhido
         const card = UserCards.find( (e) => e.card_number === selectCard );
 
+        // verifica a situação do cartão
         const aproved = card?.aproved;
-        console.log(data.target ,selectCard,card,value,aproved);
-       
-    
+      
+        
         const urlCard = 'https://run.mocky.io/v3/533cd5d7-63d3-4488-bf8d-4bb8c751c989';
-
 
         const cardInfo = await fetch(urlCard, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(card),
+            body: JSON.stringify({
+                card_number:card?.card_number,
+                cvv:card?.cvv,
+                expiry_date:card?.expiry_date,
+                value:value,
+                destination_user_id:data.id,
+            }),
         });
+        console.log(`User id ${data.id}`)
 
+        console.table(cardInfo)
 
         const cardData = await cardInfo.json();
-       
-        console.log(cardData['status']);
+    
   
         if(cardData['status'] === aproved){
             setMessage(' O pagamento foi aprovado');
@@ -118,7 +131,7 @@ export const UserProfile = (data:user) => {
 
             </div>
 
-            <button id="button" onClick={()=> setModalPay(true)}>Pagar</button>
+            <button id="button" onClick={()=> setModalPay(true)} >Pagar</button>
 
         </div>
 
@@ -133,7 +146,7 @@ export const UserProfile = (data:user) => {
         <form className="payment" onSubmit={paymentLoading}>
 
             <div className="payment_header">
-                <p>Pagamento para: <span>{data.name}</span></p>
+                <p >Pagamento para: <span>{data.name}</span></p>
             </div>
 
             <div className="payment_container">
@@ -159,7 +172,7 @@ export const UserProfile = (data:user) => {
 
                 <div className="payment_buttons">
 
-                    <button id="payment_button">Pagar</button>
+                    <button id="payment_button"  >Pagar</button>
                     <button id="payment_cancel" onClick={()=>setModalPay(false)} >Cancelar</button>
                 </div>
 
