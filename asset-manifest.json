@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Nullbank/static/css/main.3a4bff1b.css",
-    "main.js": "/Nullbank/static/js/main.62c6d53d.js",
+    "main.js": "/Nullbank/static/js/main.4fc2a192.js",
     "static/js/787.2eb06685.chunk.js": "/Nullbank/static/js/787.2eb06685.chunk.js",
     "index.html": "/Nullbank/index.html",
     "main.3a4bff1b.css.map": "/Nullbank/static/css/main.3a4bff1b.css.map",
-    "main.62c6d53d.js.map": "/Nullbank/static/js/main.62c6d53d.js.map",
+    "main.4fc2a192.js.map": "/Nullbank/static/js/main.4fc2a192.js.map",
     "787.2eb06685.chunk.js.map": "/Nullbank/static/js/787.2eb06685.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3a4bff1b.css",
-    "static/js/main.62c6d53d.js"
+    "static/js/main.4fc2a192.js"
   ]
 }
